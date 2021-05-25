@@ -12,12 +12,3 @@ RUN mvn package \
 EXPOSE 80
 
 CMD java -jar /run/carts.jar --port=80
-=======
-    && mv target/carts.jar /run/carts.jar \
-    && rm -rf /opt/carts/*
-
-WORKDIR /run
-
-EXPOSE 80
-
-CMD java -jar carts.jar --port=80
