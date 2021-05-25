@@ -21,9 +21,8 @@ pipeline{
                 archiveArtifacts artifacts: '**/target/*.jar'
             }
         }
-    }
-    tools{
-       maven 'Maven 3.6.3'
+     tools{
+        maven 'Maven 3.6.3'
     }
   }
 }
