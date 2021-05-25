@@ -1,28 +1,29 @@
 pipeline{
 
     agent any
-  
-    tools{
-      maven 'Maven 3.6.3'
-
     stages{
-        stage('Build'){
+        stage('build'){
             steps{
                 echo 'this is the build job'
-                sh 'mvn clean compile'
+                sh 'mvn compile'
             }
         }
-        stage('Test'){
+        stage('test'){
             steps{
-                echo 'Testing..'
-                sh 'mvn test'
+                echo 'this is the test job'
+                sh 'mvn clean test'
             }
         }
-        stage('Package'){
+        stage('package'){
             steps{
-                echo 'Deploying...'
+                echo 'this is the package job'
                 sh 'mvn package -DskipTests'
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: '**/target/*.jar'
             }
         }
     }
+    tools{
+       maven 'Maven 3.6.3'
+    }
+  }
+}
